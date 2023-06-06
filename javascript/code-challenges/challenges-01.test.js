@@ -99,11 +99,11 @@ const addValues = (arr, value) => {
   arr.push(value);
 };
 
-const addNumbers = (num, arr, times, addValues) => {
+const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
 
   for(let i = 0; i < times; i++){
-    addValues(arr, num);
+    callback(arr, num);
   }
   return arr;
 };
