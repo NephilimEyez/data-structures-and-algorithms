@@ -63,14 +63,16 @@ For example, if the input is 'Welcome', the output will be:
 ['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', ''].
 ------------------------------------------------------------------------------------------------ */
 
-// const howMuchPencil = (str) => {
-//   let result = [];
-//   let counter = str.length;
-//   // Solution code here...
-//   for (let i = 0; i < counter; i++) {
-//     result.push(str.replace(/^./,''));
-//   }
-//   return result;
+const howMuchPencil = (str) => {
+  let result = [];
+  let newStr = str;
+  let counter = str.length;
+  // Solution code here...
+  for (let i = 0; i <= counter; i++) {
+    result.push(newStr);
+    newStr = newStr.substring(1);
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,9 +83,7 @@ Write a function name wordsToCharList that, given a string as input, returns a n
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
-const wordsToCharList = (arr) => {
-  // Solution code here...
-};
+const wordsToCharList = (arr) => arr.split('');
 
 
 /* ------------------------------------------------------------------------------------------------
