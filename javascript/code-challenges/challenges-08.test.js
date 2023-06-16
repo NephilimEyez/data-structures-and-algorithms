@@ -53,7 +53,17 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-  let numberSort = charArray.sort((a,b) => a.children.length-b.children.length)};
+  // Solution code here...
+  return charArray.sort((a,b) => {
+    if(a.children.length < b.children.length){
+      return -1;
+    } else if(a.children.length > b.children.length){
+      return 1;
+    } else {
+      return a.house > b.house ? 1 : -1;
+    }
+  });
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -62,9 +72,7 @@ Write a function named containsW that takes in a string. This function should us
 
 ------------------------------------------------------------------------------------------------ */
 
-const containsW = (str) => {
-  // Solution code here...
-};
+const containsW = (str) => str.includes('w');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -78,9 +86,7 @@ For example:
 'hello world' returns false
 ------------------------------------------------------------------------------------------------ */
 
-const isNum = (input) => {
-  // Solution code here...
-};
+const isNum = (input) => input.toString().match(/\d/g);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -89,9 +95,7 @@ Write a function named containsWorld that takes in a string or number of any len
 
 ------------------------------------------------------------------------------------------------ */
 
-const containsWorld = (input) => {
-  // Solution code here...
-};
+const containsWorld = (input) => input.toString().includes('world');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -102,7 +106,13 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  // This works in replit when ever I set any of their strings in the test to string in replit. They all pass and I don't see what's failing
+  let newArr = [];
+  newArr = str.match(/[A-Z][a-z]*/gm);
+  if(newArr === null){
+    newArr = [];
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,6 +123,13 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let newArr = [];
+  newArr = arr.filter(element => {
+    if(element.match(/[A-J][a-z](.*)/gm) == element) {
+      return element;
+    }}
+  );
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
