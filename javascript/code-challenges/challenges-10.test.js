@@ -58,7 +58,7 @@ const totalSum = (matrix) => {
   return sum;
 };
 
-// This works in replit. No idea why it is saying it is an empty array, if I consel log between the two steps it is clearly not. 
+// This works in replit. No idea why it is saying it is an empty array, if I consel log between the two steps it is clearly not.
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,17 +86,15 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 const grandTotal = (stores) => {
   // Solution code here...
   let newArr = [];
-  hoursOpen.forEach(hour => {
+  for(let i = 0; i < hoursOpen.length; i++){
     let total = 0;
-    stores.forEach(store => {
-      total += store[hour];
-    });
+    for(let j = 0; j < stores.length; j++) {
+      total += stores[j][i];
+    }
     newArr.push(total);
-  });
+  }
   return newArr;
 };
-
-// I really don't understand why this isn't working
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -110,7 +108,19 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let newArr = [];
+
+  for(let i = 0; i < hours.length; i++){
+    let total = 0;
+    for(let j = 0; j < data.length; j++) {
+      total += data[j][i];
+    }
+    newArr.push({'sales': total + ' cookies', 'time': hours[i]});
+  }
+  return newArr;
 };
+
+// AGAIN THIS WORKS IN REPLIT BUT NOT ON THE TEST, SERIOUSLY WTF
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -135,6 +145,15 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  let value = 0;
+  arr.forEach(store => {
+    store.items.forEach(item => {
+      if(item.name === 'Treats') {
+        value = item.quantity;
+      }
+    });
+  });
+  return value;
 };
 
 /* ------------------------------------------------------------------------------------------------
