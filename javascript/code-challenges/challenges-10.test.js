@@ -53,12 +53,10 @@ const totalSum = (matrix) => {
   // Solution code here...
   let newArr = matrix.flat(4);
   let sum = newArr.reduce((a,b) => {
-    return a + b;
-  });
+    return a + b;}, 0);
   return sum;
 };
 
-// This works in replit. No idea why it is saying it is an empty array, if I consel log between the two steps it is clearly not.
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,13 +108,12 @@ const salesData = (hours, data) => {
   // Solution code here...
   let newArr = [];
 
-  for(let i = 0; i < hours.length; i++){
-    let total = 0;
-    for(let j = 0; j < data.length; j++) {
-      total += data[j][i];
-    }
-    newArr.push({'sales': total + ' cookies', 'time': hours[i]});
-  }
+  data.forEach((salesTotal, index) => {
+    newArr.push({
+      sales: `${salesTotal} cookies`,
+      time: hours[index]
+    });
+  });
   return newArr;
 };
 
